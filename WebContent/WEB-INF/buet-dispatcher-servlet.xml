@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <!--
+    Most controllers will use the ControllerClassNameHandlerMapping above, but
+    for the index controller we are using ParameterizableViewController, so we must
+    define an explicit mapping for it.
+    -->
+
+
+    <!--  <context:annotation-config />   -->
+    <context:component-scan base-package="com.buet"/>
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <!-- 				<prop key="/consumer/*">consumerController</prop> -->
+                <!-- 				<prop key="/admin/*">adminController</prop> -->
+                <!-- 				<prop key="/security/*">securityController</prop> -->
+            </props>
+        </property>
+    </bean>
+
+    <bean id="authenticationAspect" class="com.buet.aop.AuthenticationAspect"/>
+    <bean id="authorizationAspect" class="com.buet.aop.AuthorizationAspect"/>
+
+    <!--     Enable the @AspectJ support -->
+    <aop:aspectj-autoproxy proxy-target-class="true">
+        <aop:include name="authenticationAspect"/>
+        <aop:include name="authorizationAspect"/>
+    </aop:aspectj-autoproxy>
+
+</beans>

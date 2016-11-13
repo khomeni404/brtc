@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="schemeImplementationRecordReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="451" leftMargin="72" rightMargin="72" topMargin="20" bottomMargin="20" uuid="65e9c791-c914-4001-ad55-991f74064ae3">
+	<property name="ireport.zoom" value="1.6500000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="57"/>
+	<parameter name="schemeId" class="java.lang.Long"/>
+	<parameter name="districtId" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="upazilaId" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="upId" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT  DIS.DIS_NAME_BN, UPZ.UPZ_NAME_BN, UP.UP_NAME_BN, SI.NAME AS schemeName, SI.SCHEME_LOCATION, SI.GRANTED_AMOUNT, SI.RECEIVED_AMOUNT,
+        SIR.MAIN_WORK_DETAILS, SIR.IMPLEMENTED_WORK_DETAILS, SIR.DIFFER_BTN_MANI_IMPLENT_WORK,
+        MONTHS_BETWEEN (trunc(SIR.SCM_IMPL_REAL_TIME_END,'MM'), trunc(SIR.SCM_IMPL_REAL_TIME_START,'MM')) SCM_IMPL_REAL_TIME,
+       -- SIR.SCM_IMPL_REAL_TIME_START,SIR.SCM_IMPL_REAL_TIME_END
+        MONTHS_BETWEEN (trunc(SIR.SCM_IMPL_TIME_ACC_PLAN_END,'MM'), trunc(SIR.SCM_IMPL_TIME_ACC_PLAN_START,'MM')) SCM_IMPL_TIME_ACC_PLAN,
+       -- SIR.SCM_IMPL_TIME_ACC_PLAN_START, SIR.SCM_IMPL_TIME_ACC_PLAN_END,
+        SIR.DIFFER_BTN_BOTH_TIME, SIR.OPNION_ABT_IMPLEMENTED_SCM
+FROM ADT_SCHEME_IMPLEMENT_RECORD SIR
+INNER JOIN SCHEME_INFO SI
+ ON (SIR.SCHEME_INFO_ID = SI.ID)
+INNER JOIN DISTRICT DIS
+ ON (SIR.DISTRICT_NAME_ID = DIS.ID)
+INNER JOIN UPAZILA UPZ
+ ON (SIR.UPAZILA_NAME_ID = UPZ.ID)
+INNER JOIN UNION_PARISHAD UP
+ ON (SIR.UNION_PARISHAD_NAME_ID = UP.ID)
+WHERE SIR.SCHEME_INFO_ID IN ($P{schemeId})
+AND SIR.DISTRICT_NAME_ID IN ($P{districtId})
+AND SIR.UPAZILA_NAME_ID IN ($P{upazilaId})
+AND SIR.UNION_PARISHAD_NAME_ID IN ($P{upId})]]>
+	</queryString>
+	<field name="DIS_NAME_BN" class="java.lang.String"/>
+	<field name="UPZ_NAME_BN" class="java.lang.String"/>
+	<field name="UP_NAME_BN" class="java.lang.String"/>
+	<field name="SCHEMENAME" class="java.lang.String"/>
+	<field name="SCHEME_LOCATION" class="java.lang.String"/>
+	<field name="GRANTED_AMOUNT" class="java.lang.Double"/>
+	<field name="RECEIVED_AMOUNT" class="java.lang.Double"/>
+	<field name="MAIN_WORK_DETAILS" class="java.lang.String"/>
+	<field name="IMPLEMENTED_WORK_DETAILS" class="java.lang.String"/>
+	<field name="DIFFER_BTN_MANI_IMPLENT_WORK" class="java.lang.String"/>
+	<field name="SCM_IMPL_REAL_TIME" class="java.math.BigDecimal"/>
+	<field name="SCM_IMPL_TIME_ACC_PLAN" class="java.math.BigDecimal"/>
+	<field name="DIFFER_BTN_BOTH_TIME" class="java.lang.String"/>
+	<field name="OPNION_ABT_IMPLEMENTED_SCM" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="0" width="424" height="27" uuid="6892cb52-11e9-452b-88b2-8f47c92bfd20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[স্কিম বাস্তবায়ন সংক্রান্ত রেকর্ড সংরক্ষণ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="323" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="76" height="221" isPrintWhenDetailOverflows="true" uuid="3da038f6-81ce-4316-8f96-ef40a55eaa35"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[ক. সাধারন তথ্য
+যে ক্ষেত্রে প্রস্তাবকৃত এবং সম্পাদনকৃত কারজসমুহের মধ্যে অথবা ধারনাকৃত সময় এবং বাস্তবায়নের প্রকৃত সময়ের মধ্যে পার্থক্য থাকে, সেক্ষেত্রে তাৎক্ষনিক ভাবে ইউনিয়ন পরিষদ অফিসে এর কারন উল্লেখ করে বাস্তবায়ন কমিটি একটি প্রতিবেদন দাখিল করবে । ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="223" y="20" width="228" height="14" uuid="45ba799d-11e4-4395-a974-36f0338cd330"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SCHEMENAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="76" y="20" width="147" height="14" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[স্কিমের নাম : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="34" width="147" height="14" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[স্কিমের অবস্থান : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="223" y="34" width="228" height="14" uuid="ce92eb75-c6cc-40c1-b375-cfc97508998a"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SCHEME_LOCATION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="76" y="48" width="147" height="14" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[স্কিমের জন্য বরাদ্দকৃত অর্থের পরিমান : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="true">
+				<reportElement x="223" y="48" width="115" height="14" uuid="808cc0f8-0864-4f76-9f65-2ed6d4ec6a4c"/>
+				<box leftPadding="2" rightPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SutonnyMJ"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GRANTED_AMOUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="76" y="62" width="147" height="14" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[স্কিমের জন্য প্রাপ্ত অর্থের পরিমান : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="true">
+				<reportElement x="223" y="62" width="115" height="14" uuid="af44d031-c060-4ac2-9d2b-4cad6e6e4707"/>
+				<box leftPadding="2" rightPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SutonnyMJ"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RECEIVED_AMOUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="338" y="48" width="113" height="14" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="4">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[টাকা]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="338" y="62" width="113" height="14" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="4">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[টাকা]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="76" width="147" height="41" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[ইউনিয়ন পরিষদ কর্তৃক অর্থের জন্য আবেদনের সময় প্রস্তাবিত মূল কাজের সংক্ষিপ্ত বর্ণনা : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="223" y="76" width="228" height="41" uuid="674b9354-445d-4b88-ad1c-e69a61d5c31f"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MAIN_WORK_DETAILS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="76" y="117" width="147" height="41" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[প্রাপ্ত অর্থ দ্বারা বাস্তবায়িত কাজের সংক্ষিপ্ত বর্ণনা : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="223" y="117" width="228" height="41" uuid="bfdc6fc8-b3c1-4b76-bb02-f9a7eb433b4f"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IMPLEMENTED_WORK_DETAILS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="76" y="158" width="147" height="41" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[প্রস্তাবিত ও বাস্তবায়িত কাজের মধ্যে কোন পার্থক্য আছে কিনা ? থাকলে এ পার্থক্যের কারন ব্যাখ্যা করুন : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="223" y="158" width="228" height="41" uuid="70691b7a-1e7f-4731-9a04-3d74beb8162c"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DIFFER_BTN_MANI_IMPLENT_WORK}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="76" y="199" width="147" height="14" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[স্কিম বাস্তবায়নের প্রকৃত সময়কাল : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="223" y="199" width="115" height="14" uuid="5d63cb44-0352-436b-8e67-9def48c3e82a"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SutonnyMJ"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SCM_IMPL_REAL_TIME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="338" y="199" width="113" height="14" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="4">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[মাস]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="213" width="147" height="28" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[প্রস্তাব ও পরিকল্পনা অনুযায়ী স্কিম বাস্তবায়নের সময়কাল কি ছিল : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="223" y="213" width="115" height="28" uuid="6e9a1ef4-de72-4f44-ad19-288ea423c3ec"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SutonnyMJ"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SCM_IMPL_TIME_ACC_PLAN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="338" y="213" width="113" height="28" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="4">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[মাস]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="241" width="147" height="41" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[যদি প্রাক্কলনকালের সময় ও বাস্তবায়নকালের প্রকৃত সময়ের মধ্যে পার্থক্য থাকে, তার কারন বর্ণনা করুন : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="223" y="241" width="228" height="41" uuid="70f688af-1e89-4ddb-a81a-5c0cf840d85a"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DIFFER_BTN_BOTH_TIME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="76" y="282" width="147" height="41" uuid="d403b842-d413-4c2a-a8db-27c126391e89"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[বাস্তবায়িত স্কিমের মানের বিষয়ে সভা/জরিপ করে গৃহীত স্থানীয় জনসাধারনের মতামত : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="223" y="282" width="228" height="41" uuid="ca18fae7-23a1-471f-8e06-206f63fb905c"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OPNION_ABT_IMPLEMENTED_SCM} == "1" ? "পুরোপুরি সন্তোষজনক" : ($F{OPNION_ABT_IMPLEMENTED_SCM} == "2" ? "সন্তোষজনক" : ($F{OPNION_ABT_IMPLEMENTED_SCM} == "3" ? "মোটামুটি সন্তোষজনক" : "সন্তোষজনক নয়"))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="36" y="0" width="96" height="14" backcolor="#CCCCCC" uuid="eea5c47b-5ae2-40e4-aae4-e06579ef51a2"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DIS_NAME_BN}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="180" y="0" width="94" height="14" backcolor="#CCCCCC" uuid="c555a385-8929-48f5-814c-6436e36bf94c"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UPZ_NAME_BN}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="322" y="0" width="129" height="14" backcolor="#CCCCCC" uuid="bde61878-93a3-4dfc-9ea4-5d1566ed49f9"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UP_NAME_BN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="36" height="14" uuid="54a5930a-b34f-4f13-9792-f04fe4ea838b"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" isBold="true"/>
+				</textElement>
+				<text><![CDATA[জেলা : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="132" y="0" width="48" height="14" uuid="54a5930a-b34f-4f13-9792-f04fe4ea838b"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" isBold="true"/>
+				</textElement>
+				<text><![CDATA[উপজেলা : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="0" width="48" height="14" uuid="54a5930a-b34f-4f13-9792-f04fe4ea838b"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ইউনিয়ন : ]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

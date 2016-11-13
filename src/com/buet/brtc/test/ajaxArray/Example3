@@ -1,0 +1,36 @@
+Spring is smart enough to figure out how to do the binding.
+
+For multiple arrays, you might want to just have a command object:
+
+public class MyData {
+    private List<Integer> firstArray;
+    private List<Integer> secondArray;
+    private List<Integer> thirdArray;
+
+    ...
+    ...
+}
+Then on the JavaScript side:
+
+$.ajax({
+    type : "POST",
+    url : "/myurl",
+    data : {
+        myData: {
+           "firstArray": firstArray,
+           "secondArray": secondArray,
+           "thirdArray": thirdArray
+        }
+    },
+    success : function(response) {
+       // do something ...
+    },
+    error : function(e) {
+       alert('Error: ' + e);
+    }
+});
+On the Java side, you can bind using @ModelAttribute:
+
+public String controllerMethod(@ModelAttribute(value="myData") MyData myData) throws ParseException {
+    ....
+}

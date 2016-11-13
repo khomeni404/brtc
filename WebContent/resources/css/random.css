@@ -1,0 +1,31 @@
+.mak-min-height-1{min-height: 10px}
+.mak-min-height-2{min-height: 20px}
+.mak-min-height-3{min-height: 50px}
+.mak-min-height-4{min-height: 100px}
+.mak-min-height-5{min-height: 200px}
+
+.highlight { background-color: yellow } /*This css for highlighting matched text see javascript-highlight.js*/
+
+.displaying-div{
+
+    text-align: center;
+    height: 25px;
+    width: 300px;
+    display: inline-block;
+    padding: 2px 0 0 0;
+    margin: 10px 0;
+    border-radius: 4px;
+    position: relative;
+    float: left;
+    line-height: 1.42857143;
+    color: #000000;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-weight: bold;
+}
+
+
+/*This properties is needed for show bootstrap date-picker on a modal*/
+.datepicker{z-index:1151 !important;}
+

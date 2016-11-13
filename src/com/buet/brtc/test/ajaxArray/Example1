@@ -1,0 +1,29 @@
+var a = [];
+a[0] = 1;
+a[1] = 2;
+a[2] = 3;
+
+
+$.ajax({
+    type : "POST",
+    url : "/myurl",
+    data : "a="+a,  //multiple array, just add something like "&b="+b ...
+    success : function(response) {
+       // do something ...
+    },
+    error : function(e) {
+       alert('Error: ' + e);
+    }
+});
+
+
+java side, get a class to receive data, using lombok
+
+@Setter @Getter public class MyData { private ArrayList a;
+}
+
+then in the controller
+@RequestMapping(value = "/repair_info", method = RequestMethod.POST)
+public ModelAndView myControl(MyData myData) {
+    // get data with myData object
+}

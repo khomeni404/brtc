@@ -1,0 +1,1 @@
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('checkClientPayment', 'Check Client Payment', 4);

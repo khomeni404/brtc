@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TeachersProject" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1d41079b-e45c-4ac4-827d-db6b446e6156">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="RealPath" class="java.lang.String"/>
+	<parameter name="Department" class="java.lang.String"/>
+	<field name="Name" class="java.lang.String"/>
+	<field name="Projects" class="java.lang.String"/>
+	<field name="Negotiating" class="java.lang.String"/>
+	<field name="Running" class="java.lang.String"/>
+	<field name="Completed" class="java.lang.String"/>
+	<field name="Others" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="97" y="16" width="429" height="56" uuid="4cbf2864-d5b8-4a0a-aae3-06a31285b16c"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bureau of Research, Testing and Consultation (BRTC)
+BUET]]></text>
+			</staticText>
+			<image>
+				<reportElement x="38" y="12" width="59" height="50" uuid="665d7a37-9170-486e-bdf8-a3446413435f"/>
+				<imageExpression><![CDATA[$P{RealPath}+"login_logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="36" y="8" width="490" height="20" uuid="2b63526f-ea77-454b-ae65-64e6cc12ed82"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teacher List : Consulted Project Status]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="36" y="30" width="490" height="20" uuid="023285c0-c0d8-4189-9406-e9338a3d6528"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Department : "+$P{Department}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="53" width="555" height="1" uuid="64a66714-3cd3-464a-b2c2-39701c729e26"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="36" y="2" width="199" height="20" uuid="e1e91315-5c82-4ee1-b15e-959cc3379e50"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="2" width="64" height="20" uuid="a2a999cd-b15a-4d84-a8a3-6865f95c98dc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Projects]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="2" width="62" height="20" uuid="e1d00304-7fcc-4029-a1e3-2558960fde54"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Others]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="2" width="57" height="20" uuid="673c1cbc-323d-413a-865d-66d483cf25b7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Completed]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="2" width="52" height="20" uuid="45ef1c4b-a465-4090-bbe3-dfa6571c5d83"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Running]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="299" y="2" width="56" height="20" uuid="b4b84c1b-03bf-4947-9cbb-6bd89ecac363"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Negotiating]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" uuid="65cf9edd-17b4-4524-ba39-7b303e37f9e0"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="36" y="0" width="199" height="20" uuid="143c9353-2bb8-4956-8f25-7ba92d7b7f10"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="235" y="0" width="64" height="20" uuid="524f051f-c6df-4547-a918-93856c0ef7bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Projects}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="464" y="0" width="62" height="20" uuid="61304ccb-9e7a-485f-965e-272a2243f525"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Others}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="0" width="57" height="20" uuid="4777bdf0-4f3c-48ad-a7ec-1d5f25f18600"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Completed}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="0" width="52" height="20" uuid="30cb7720-3fb0-46e2-b2dc-b32313433113"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Running}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="0" width="56" height="20" uuid="63315db6-37c4-48f6-aa80-07983a8927b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Negotiating}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="18" width="555" height="1" uuid="037056c5-94b3-481c-af59-4bfe447eb86f"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProjectAssignmentLetter" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b941b784-84d6-4734-823a-8287b178e50e">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="384"/>
+	<parameter name="Consultants" class="java.lang.String"/>
+	<parameter name="ProjectName" class="java.lang.String"/>
+	<parameter name="ClientName" class="java.lang.String"/>
+	<parameter name="Department" class="java.lang.String"/>
+	<parameter name="ClientAddress" class="java.lang.String"/>
+	<parameter name="ClientContact" class="java.lang.String"/>
+	<parameter name="SpokesMan" class="java.lang.String"/>
+	<parameter name="Date" class="java.lang.String"/>
+	<parameter name="RealPath" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="259" splitType="Stretch">
+			<staticText>
+				<reportElement x="89" y="40" width="441" height="50" uuid="53bf2b76-8194-4c2b-8130-357f4440e138"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bureau of Research, Testing and Consultation (BRTC)
+BUET]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="219" width="256" height="20" uuid="49d65c9d-975b-4290-875c-4e0a9bcbd5d5"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sub: Project Assignment Leter]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="34" y="155" width="496" height="50" uuid="997b245c-b2d6-4204-8c98-dab30eba77ec"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Attention : " + $P{Consultants}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="118" width="197" height="20" uuid="3dbfe6dd-19ad-49c0-8ee0-72db8d259419"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Date : " +$P{Date}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="34" y="33" width="55" height="50" uuid="33054c93-ec11-4530-bf8c-6c1dc107cca4"/>
+				<imageExpression><![CDATA[$P{RealPath}+"login_logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="294" splitType="Stretch">
+			<textField>
+				<reportElement x="34" y="31" width="496" height="115" uuid="1d3ff40c-5f25-4e96-b448-25beadbe36dd"/>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA["It is being announced that, you are selected to negotiate with [ "+$P{ClientName}
++ " ], for a project. Details are given below. This project will be titled as [ "+$P{ProjectName}
++ " ]. And it is also being expected that, feedback will be given as soon as possible."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="0" width="100" height="20" uuid="87d06761-6b04-4544-b6a7-15365722da95"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Mr(s) / Mrs(s).]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="34" y="272" width="496" height="20" uuid="50495fdf-3084-4f3b-b6f4-93aa5d100584"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Department}+", BUET"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="252" width="496" height="20" uuid="1935b5e7-4207-41cb-9780-ec239d85ff4e"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Head of the depertment,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="152" width="496" height="47" uuid="33a89989-7877-4342-93e4-47fbda8e0822"/>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Knocking for any kind of cooperation will be considered cordially. Looking for expecting success...
+]]></text>
+			</staticText>
+			<line>
+				<reportElement x="34" y="251" width="197" height="1" uuid="824709e9-a37a-4efd-8101-88e7346714d3"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="186" splitType="Stretch">
+			<staticText>
+				<reportElement x="34" y="37" width="100" height="20" uuid="5e086652-0c56-40b1-b07c-2829bafff0ba"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Client Details:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="34" y="57" width="496" height="20" uuid="aa69330f-20d0-40dc-87d1-3483b16360fd"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Client Name : "+$P{ClientName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="77" width="496" height="20" uuid="f5d1ac25-6a72-476b-b4ec-fd308fa4cf15"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Address : " +$P{ClientAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="97" width="496" height="20" uuid="429c2741-4f62-49ae-ac81-85deba48f17e"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Contact(s) : "+$P{ClientContact}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="117" width="496" height="20" uuid="3a5f91ac-e95c-478f-b009-2a59861ab644"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Spokes Man : " +$P{SpokesMan}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="36" width="555" height="1" uuid="4472aa5b-7456-4389-adf1-285eb084cc3e"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

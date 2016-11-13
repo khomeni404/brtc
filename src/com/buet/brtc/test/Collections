@@ -1,0 +1,107 @@
+Comparator<Contact> comparator = new Comparator<Contact>() {
+    public int compare(Contact c1, Contact c2) {
+        return c2.getId() - c1.getId(); // use your logic
+    }
+};
+
+Collections.sort(list, comparator);
+
+
+Ext.Ajax.request({
+    url : '/KhomeniExt/login/authenticate.do',
+    params : {
+        username : username,
+        password : password
+    },
+    failure:function(conn, response, options, eOpts){
+        Ext.Msg.show({
+            title:'Server Error',
+            msg:conn.responseText,
+            icon : Ext.Msg.ERROR,
+            buttons:Ext.Msg.OK
+        });
+    },
+    success:function(conn, response, options, eOpts){
+        var result = Ext.JSON.decode(conn.responseText, true);
+
+        if(result.success){
+            var redirect = '/KhomeniExt/login/success'; //here need to redirect to another url on the controller side
+            window.location = redirect;
+        }else{
+            Ext.Msg.show({
+                title:'Login Failed',
+                msg: result.msg,
+                icon : Ext.Msg.ERROR,
+                buttons:Ext.Msg.OK
+            });
+        }
+    }
+});
+
+
+//Alert before start modal
+$('#alertModal-danger').on('show.bs.modal', function (e) {
+    alert('why not work');
+});
+
+function deletePaymentRequest(id){
+     $('#alertModal-warning').modal('show');
+     $('#alert-warning-title').html('Warning !') ;
+     $('#alert-warning-body').html('Are you sure to delete this request ?') ;
+
+     $.ajax({
+         url: '/brtc/brtc/deletePaymentRequest.buet',
+         data: "id="+id,
+         dataType: "json",
+             success: function(data){
+             if(data.success === true){
+                 window.location.href = '/brtc/brtc/paymentRequestList.buet?status=0';
+             }else{
+                 $('#alertModal-alert').modal('show');
+                 $('#alert-danger-title').html('Sorry') ;
+                 $('#alert-danger-body').html(data.msg) ;
+             }
+         }
+     });
+}
+
+//Get value by jquery
+var gg = $('#needReset').attr('value');
+var gg = $("input[name=needReset]").val();
+//get value
+1. radio : var optionsRadiosSelfOrNot = $("input[name=optionsRadiosSelfOrNot]:checked").val();   //  optionsRadiosSelfOrNot = radio name
+2. DataList : document.getElementById("fileNumber").value; //fileNumber = <input list="..."  id="fileNumber"/>
+3. Attr value :
+    <button type="button" class="fa fa-times text-danger deleteClient" clientId="${client.id}"></button>
+     $('.deleteClient').click(function(){
+        alert($(this).attr('clientId'));
+     });
+
+
+
+
+//jquery growl message
+$.growl({ title: "Growl", message: "The kitten is awake!" });
+$.growl.error({ message: "The kitten is attacking!" });
+$.growl.notice({ message: "The kitten is cute!" });
+$.growl.warning({title: "Warning", message: "Don't delete this thing!" });
+
+
+//checking NaN, nan, number
+$.isNumeric( "-10" );     // true
+$.isNumeric( 16 );        // true
+$.isNumeric( 0xFF );      // true
+$.isNumeric( "0xFF" );    // true
+$.isNumeric( "8e5" );     // true (exponential notation string)
+$.isNumeric( 3.1415 );    // true
+$.isNumeric( +10 );       // true
+$.isNumeric( 0144 );      // true (octal integer literal)
+$.isNumeric( "" );        // false
+$.isNumeric({});          // false (empty object)
+$.isNumeric( NaN );       // false
+$.isNumeric( null );      // false
+$.isNumeric( true );      // false
+$.isNumeric( Infinity );  // false
+$.isNumeric( undefined ); // false
+
+

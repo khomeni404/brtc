@@ -1,0 +1,70 @@
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('createUser', 'User Create', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('saveUser', 'User Save', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('userList', 'User List', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('userJsonData', 'User JsonData', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('updateUser', 'User Update', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('deleteUser', 'User Delete', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('editUser', 'User Edit', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('viewUser', 'User View', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('findUser', 'User Find', 1);
+
+
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('createAuthority', 'Authority Create', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('saveAuthority', 'Authority Save', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('authorityList', 'Authority List', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('authorityJsonData', 'Authority JsonData', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('updateAuthority', 'Authority Update', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('deleteAuthority', 'Authority Delete', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('editAuthority', 'Authority Edit', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('viewAuthority', 'Authority View', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('findAuthority', 'Authority Find', 1);
+
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('createAuthorizedGroups', 'AuthorizedGroups Create', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('saveAuthorizedGroups', 'AuthorizedGroups Save', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('authorizedGroupsList', 'AuthorizedGroups List', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('authorizedGroupsJsonData', 'AuthorizedGroups JsonData', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('updateAuthorizedGroups', 'AuthorizedGroups Update', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('deleteAuthorizedGroups', 'AuthorizedGroups Delete', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('editAuthorizedGroups', 'AuthorizedGroups Edit', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('viewAuthorizedGroups', 'AuthorizedGroups View', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('findAuthorizedGroups', 'AuthorizedGroups Find', 1);
+
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('createComponent', 'Component Create', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('saveComponent', 'Component Save', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('componentList', 'Component List', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('componentJsonData', 'Component JsonData', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('updateComponent', 'Component Update', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('deleteComponent', 'Component Delete', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('editComponent', 'Component Edit', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('viewComponent', 'Component View', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('findComponent', 'Component Find', 1);
+
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('createFeature', 'Feature Create', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('saveFeature', 'Feature Save', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('featureList', 'Feature List', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('featureJsonData', 'Feature JsonData', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('updateFeature', 'Feature Update', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('deleteFeature', 'Feature Delete', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('editFeature', 'Feature Edit', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('viewFeature', 'Feature View', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('findFeature', 'Feature Find', 1);
+
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('createToken', 'Token Create', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('saveToken', 'Token Save', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('tokenList', 'Token List', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('tokenJsonData', 'Token JsonData', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('updateToken', 'Token Update', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('deleteToken', 'Token Delete', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('editToken', 'Token Edit', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('viewToken', 'Token View', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('findToken', 'Token Find', 1);
+
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('createUserGroup', 'UserGroup Create', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('saveUserGroup', 'UserGroup Save', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('userGroupList', 'UserGroup List', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('userGroupJsonData', 'UserGroup JsonData', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('updateUserGroup', 'UserGroup Update', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('deleteUserGroup', 'UserGroup Delete', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('editUserGroup', 'UserGroup Edit', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('viewUserGroup', 'UserGroup View', 1);
+INSERT INTO abc_feature (operation, description, component_componentId) VALUES('findUserGroup', 'UserGroup Find', 1);

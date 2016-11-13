@@ -1,0 +1,136 @@
+//Class design for BRTC, BUET.
+BRTCProject
+    Long id;
+    String fileNo;
+    String projectTitle;
+    User assignBy;
+    @OneToMany
+    List<Consultant> consultantList = new ArrayList<Consultant>();
+    Double initialFee;
+    Double finalFee;
+
+    Date recordDate;    //Today
+    User operator;
+
+Consultant
+    Long id;
+    @ManyToOne
+    Project project;
+    User teamMember;
+    boolean isActive;
+    Integer type;   // 0 = leader, 1 = Sub Ordinate
+    @Column(columnDefinition = "text")
+    String note;
+
+ProjectHistory
+    Long id;
+    @ManyToOne
+    Project project;
+    @Column("text")
+    String note;
+    Date recordDate;    //Today
+    User operator;
+
+ProjectStatus
+    Long id;
+    Project project;
+    Integer financialStatus;  //  0 = No deposit, 1 = Partial deposit, 2 = Full deposit
+    Integer distributionStatus;     // 0 = No distribution, 1 = Partial distributed, 2 = Full distributed
+    Integer progressStatus;      //  0 = No Response, 1 = Negotiating, 2 = Negotiation Failed, 3 = On Going, 4 = Stopped, 5 = Completed.
+
+    Date recordDate;    //Today
+    User operator;
+
+Client
+    Long id;
+    String name;
+    @Column("text")
+    String address;
+    String phone;
+    String email;
+    @Column("text")
+    String description;
+    String spokesMan;
+    String spokesManCell;
+
+    Date recordDate;
+    User operator;
+
+ClientPayment
+    Long id;
+    String brtcNo;
+    String mrNo;
+    Client client;
+    Project project;
+    Double amount;
+    Date paymentDate;
+
+    Date recordDate;    //Today
+    User operator;
+
+
+
+Distribution
+    Long id;
+    User receivedBy;
+    Project project;
+    Double amount;
+    Integer type;     //  0 = Advanced, 1 = Others
+    String note;
+    User counteredBy;
+    User approvedBy;
+
+    Date recordDate;
+    User operator;
+
+Adjustment
+    Long id;
+    User adjustedBy;
+    Project project;
+    Double amount;
+    Integer adjustedWith;       // 0 = Voucher, 1 = Bank Receipt, 3 = Bank Cheque, 4 = Cash
+    User approvedBy;
+
+    Date recordDate;
+    User operator;
+
+
+
+Team
+    Long id;
+    String teamNo;
+    Project project;
+    User teamLeader;
+    List<TeamMember> teamMember;
+    Date preparedDate;
+    String teamType;    //0 = Initial, 2 = Final
+    boolean isActive;
+    Date formDate;
+
+    Date recordDate;
+    User operator;
+TeamMember
+    Long id;
+    Team team;
+    User teamMember;
+    boolean isActive;
+    @Column("text")
+    String note;
+
+
+Advance
+    Long id;
+    User advancedBy;
+    Project project;
+    Double amount;
+    Integer adjustedWith;       // 0 = Voucher, 1 = Bank Receipt, 3 = Bank Cheque, 4 = Cash
+    User approvedBy;
+
+    Date recordDate;
+    User operator;
+
+
+
+
+
+

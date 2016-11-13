@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProjectList" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9084cdbb-15ea-4a85-b2cf-e866001c8459">
+	<property name="ireport.zoom" value="2.143588810000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="103"/>
+	<parameter name="RealPath" class="java.lang.String"/>
+	<parameter name="Department" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     brtc_project.`id` AS brtc_project_id,
+     brtc_project.`fileNo` AS brtc_project_fileNo,
+     brtc_project.`finalFee` AS brtc_project_finalFee,
+     brtc_project.`initialFee` AS brtc_project_initialFee,
+     brtc_project.`isActive` AS brtc_project_isActive,
+     brtc_project.`projectTitle` AS brtc_project_projectTitle,
+     brtc_project.`recordDate` AS brtc_project_recordDate,
+     brtc_project.`assignBy_authorizeId` AS brtc_project_assignBy_authorizeId,
+     brtc_project.`operator_authorizeId` AS brtc_project_operator_authorizeId,
+     brtc_project.`projectStatus_id` AS brtc_project_projectStatus_id,
+     brtc_project.`client_id` AS brtc_project_client_id,
+     brtc_project.`department_id` AS brtc_project_department_id
+FROM
+     `brtc_project` brtc_project]]>
+	</queryString>
+	<field name="FileNo" class="java.lang.String"/>
+	<field name="Title" class="java.lang.String"/>
+	<field name="Client" class="java.lang.String"/>
+	<field name="FinalFee" class="java.lang.String"/>
+	<field name="Status" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<staticText>
+				<reportElement x="104" y="0" width="451" height="56" uuid="01fbeaf3-949c-4f31-af8e-ae71c38df2a2"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bureau of Research, Testing and Consultation (BRTC)
+BUET]]></text>
+			</staticText>
+			<image>
+				<reportElement x="39" y="0" width="54" height="53" uuid="1125d0c0-8ccf-4a2f-9222-b50d6865b925"/>
+				<imageExpression><![CDATA[$P{RealPath}+"login_logo.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="29" y="83" width="484" height="20" uuid="4a55c75c-5ed3-485e-943b-5de8f141f841"/>
+				<textFieldExpression><![CDATA["Department : "+$P{Department}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement x="29" y="0" width="505" height="31" forecolor="#0033FF" uuid="fef65904-c5b2-4f69-a5db-7641fe88791c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["All Project List"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="28" y="47" width="516" height="1" uuid="04390899-aa17-41e7-93bd-2a1db8b1bc22"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="0" width="69" height="20" uuid="281000ec-beac-42e0-be37-8e2ce8d4e579"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[File No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="104" y="0" width="204" height="20" uuid="bf745cdd-d207-4744-8585-80804ccfd945"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Project Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="457" y="0" width="77" height="20" uuid="8d4ce2eb-c354-4eae-a20a-653fe3be1f20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Final Fee]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="0" width="100" height="20" uuid="09ee02c2-b250-4536-b1f4-98206728c82c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Client]]></text>
+			</staticText>
+			<line>
+				<reportElement x="28" y="19" width="516" height="1" uuid="3cfe224f-c013-46b0-993a-c459ba1bfabf"/>
+			</line>
+			<line>
+				<reportElement x="314" y="0" width="1" height="19" uuid="27841584-4dee-451c-af57-20da98d339ea"/>
+			</line>
+			<line>
+				<reportElement x="98" y="-1" width="1" height="21" uuid="5524a069-c273-4552-ba4c-73da00326e05"/>
+			</line>
+			<line>
+				<reportElement x="28" y="0" width="1" height="20" uuid="ba08fe7e-8429-40e4-a289-fd5e44f48529"/>
+			</line>
+			<line>
+				<reportElement x="544" y="-1" width="1" height="20" uuid="d71d8490-47de-4fea-b82f-8229a429f47e"/>
+			</line>
+			<line>
+				<reportElement x="451" y="0" width="1" height="20" uuid="c92533df-e6f6-4b66-85ed-bfed8ffa25fb"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement x="29" y="0" width="69" height="20" uuid="fdbbe697-2495-4f0a-8c98-73c946363ec9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{FileNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="104" y="0" width="204" height="48" uuid="16be68b9-be7e-4f19-aeb9-2a309518f3c4"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{Title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="0" width="77" height="20" uuid="43f0d5d4-8024-4acd-9be8-4818d8be9963"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{FinalFee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="322" y="0" width="124" height="48" uuid="ed6070bc-1867-41c6-9bb1-74f5b8515a29"/>
+				<textFieldExpression><![CDATA[$F{Client}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="28" y="47" width="516" height="1" uuid="eb870f58-085a-4a44-b889-b218d587b923"/>
+			</line>
+			<line>
+				<reportElement x="28" y="0" width="1" height="48" uuid="4b28ac37-b375-4d6b-926c-e63c1b8d154a"/>
+			</line>
+			<line>
+				<reportElement x="98" y="0" width="1" height="48" uuid="1ec96a47-4f7a-4543-9b78-d32373bee3c3"/>
+			</line>
+			<line>
+				<reportElement x="314" y="0" width="1" height="47" uuid="8b069ee9-4fb6-4019-97cd-7e367e1a469d"/>
+			</line>
+			<line>
+				<reportElement x="451" y="0" width="1" height="47" uuid="b23dc4e3-d518-490f-8122-7ddf8264435d"/>
+			</line>
+			<line>
+				<reportElement x="544" y="0" width="1" height="47" uuid="9607221f-20f1-4595-b542-40253f8c2a50"/>
+			</line>
+			<textField>
+				<reportElement x="452" y="21" width="92" height="26" uuid="2e82a2f5-0197-4cc3-87d7-16328dcc5d67"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["[ "+$F{Status}+" ]"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="414" y="0" width="80" height="20" uuid="111986f9-27a3-41ce-98e5-4c5b5262ed61"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="494" y="0" width="40" height="20" uuid="541ed2fe-283b-4bef-8617-295995ca9055"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

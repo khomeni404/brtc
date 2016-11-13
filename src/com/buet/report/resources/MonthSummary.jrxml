@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MonthSummary" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a5b1ede-9f6a-425f-a1ff-d691ca851171">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.callouts" value="##Sun Feb 15 16:08:43 BDT 2015"/>
+	<subDataset name="MonthlySummary" uuid="0654a63d-cdec-4e1d-8e40-09bc85195f9a"/>
+	<parameter name="Department" class="java.lang.String"/>
+	<parameter name="Month" class="java.lang.String"/>
+	<parameter name="TotalRunningProject" class="java.lang.String"/>
+	<parameter name="TotalReceived" class="java.lang.String"/>
+	<parameter name="DistributedTotal" class="java.lang.String"/>
+	<parameter name="BrtcNos" class="java.lang.String"/>
+	<parameter name="MrNos" class="java.lang.String"/>
+	<parameter name="PaSubmited" class="java.lang.String"/>
+	<parameter name="Rest" class="java.lang.String"/>
+	<parameter name="RealPath" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="112" splitType="Stretch">
+			<image>
+				<reportElement x="35" y="20" width="55" height="50" uuid="c4cd260d-71ff-4101-9d5d-cc4213689779"/>
+				<imageExpression><![CDATA[$P{RealPath}+"login_logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="90" y="28" width="441" height="50" uuid="c6d13c23-759a-4a2e-94b3-e952c4bdb529"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bureau of Research, Testing and Consultation (BRTC)
+BUET]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="387" splitType="Stretch">
+			<staticText>
+				<reportElement x="35" y="0" width="244" height="20" uuid="1e8dede2-a668-4b48-b6c4-abe681c53688"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Monthly Report : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="35" y="30" width="298" height="20" uuid="bd32e36b-a69c-42a3-9509-57bf1d3d447c"/>
+				<textFieldExpression><![CDATA["Departmenrt : "+$P{Department}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="35" y="89" width="496" height="1" uuid="e6e613ef-4541-4c82-bb59-bec65dd3fcb8"/>
+			</line>
+			<textField>
+				<reportElement x="35" y="104" width="496" height="20" uuid="34345d58-7fef-47e5-9c71-8b62c3511623"/>
+				<textFieldExpression><![CDATA["Total Running Project : "+$P{TotalRunningProject}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="35" y="137" width="496" height="1" uuid="e903059f-1ce6-44fc-a96e-2c2625e4f53f"/>
+			</line>
+			<line>
+				<reportElement x="35" y="258" width="496" height="1" uuid="09bc577c-c1e1-44b6-88ce-68abaa4e269e"/>
+			</line>
+			<textField>
+				<reportElement x="35" y="150" width="496" height="20" uuid="cd0ab112-e8ed-40f0-8721-dc0fbd7cf9a8"/>
+				<textFieldExpression><![CDATA["Total Received Amount : "+$P{TotalReceived}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="346" y="30" width="185" height="20" uuid="4a516fa6-079f-4c89-85bc-2eecc2d74142"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Month of "+$P{Month}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="35" y="303" width="496" height="1" uuid="7105a819-de30-46b1-b804-a3c5dfdea6f4"/>
+			</line>
+			<textField>
+				<reportElement x="35" y="270" width="496" height="20" uuid="ad49cd7f-71ff-44f8-8b27-f0d7634353aa"/>
+				<textFieldExpression><![CDATA["Distributed Total " + $P{DistributedTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="176" width="430" height="32" uuid="669fa05b-efee-45cf-83c9-e39c704e5b2f"/>
+				<textFieldExpression><![CDATA["BRTC NOs : "+$P{BrtcNos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="208" width="430" height="20" uuid="0cda49db-fac8-4c1c-90e2-c5af7206f0de"/>
+				<textFieldExpression><![CDATA["Money Receipt No. : " + $P{MrNos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="228" width="430" height="20" uuid="362478a5-ba28-447e-b68e-2cf8fd3d8d52"/>
+				<textFieldExpression><![CDATA["PA Submited of (BDT.) : " +$P{PaSubmited}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="35" y="348" width="496" height="1" uuid="6d7fecbb-4342-4a98-b639-34a479132b65"/>
+			</line>
+			<textField>
+				<reportElement x="35" y="317" width="496" height="20" uuid="722f2271-1799-48d5-a3bd-1a34f4360b61"/>
+				<textFieldExpression><![CDATA["Available for Distribution : "+$P{Rest}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

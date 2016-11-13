@@ -1,0 +1,1 @@
+insert  into `abc_authorized_group`(`authorizedId`,`authorizationDescription`,`authorizationName`) values (2,'---','Department Head Group'),(3,'---','Member Secretary (MC) Group'),(4,'---','Management Committee Member Group'),(5,'---','Teacher Group'),(6,'---','Data Entry Operator Group');

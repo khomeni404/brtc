@@ -1,0 +1,32 @@
+
+#. ProjectAssignmentLetter [projectAssignmentLetter.buet : fileNo]     (OK)
+#. PaymentRequest [ paymentRequest.buet : requestId ]     (OK)
+#. MonthSummary [ monthSummary.buet : Start-End ]
+
+
+
+#. ProjectDetails.jasper   [projectDetails.buet : fileNo]    (OK)   Include Last 2 History    (?)
+#. ProjectFinance.jasper  [projectFinance.buet : fileNo]    (OK)
+#. ProjectPayments.jasper  [projectPayments.buet : fileNo]     (Error)
+#. ProjectHistory [ projectHistory.buet : fileNo ]     (OK)
+
+
+
+#. ProjectList    (OK)
+#. ProjectListStatuses.jasper [projectListAccordingStatuses.buet]         (OK)
+#. ProjectListByDate.jasper [projectListByDate.buet]                         ()
+
+
+>>List
+#. TeachersProject [teachersProject.buet : deptId ]   (OK)
+#. TeachersFinance   [teachersFinance.buet : deptId ]   (OK)
+
+>>Single
+#. TeacherProjects [teacherProjects.buet :teacherId, deptId ]   (OK)
+#. TeacherFinance [teacherFinance.buet :teacherId, deptId ]
+
+
+#. ClientList [ clientList.buet : deptId ]
+#. ClientStatistics [ clientStatistics.buet : deptId ]
+
+

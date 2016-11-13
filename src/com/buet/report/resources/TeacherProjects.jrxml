@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TeacherProjects" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="81ae7e2f-0a74-4e85-a940-afdc40cf3e92">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="RealPath" class="java.lang.String"/>
+	<parameter name="Department" class="java.lang.String"/>
+	<parameter name="Designation" class="java.lang.String"/>
+	<parameter name="Name" class="java.lang.String"/>
+	<parameter name="TotalProject" class="java.lang.String"/>
+	<parameter name="AsLeader" class="java.lang.String"/>
+	<parameter name="AsMember" class="java.lang.String"/>
+	<parameter name="Finished" class="java.lang.String"/>
+	<parameter name="Running" class="java.lang.String"/>
+	<field name="Serial" class="java.lang.String"/>
+	<field name="ProjectTitle" class="java.lang.String"/>
+	<field name="ActAs" class="java.lang.String"/>
+	<field name="FileNo" class="java.lang.String"/>
+	<field name="ProgStatus" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="176" splitType="Stretch">
+			<staticText>
+				<reportElement x="97" y="20" width="429" height="56" uuid="cf349937-590a-4fb7-8e45-6ba8c289a5d5"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bureau of Research, Testing and Consultation (BRTC)
+BUET]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="57" y="145" width="340" height="20" uuid="574d0fb3-a998-4b0b-a88a-45f682336204"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Department}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="57" y="105" width="340" height="20" uuid="b8e72a5b-655f-4d77-90b4-890972578c45"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="57" y="125" width="340" height="20" uuid="303136b0-0150-47eb-ada4-997fcda53291"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Designation}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="21" y="15" width="76" height="50" uuid="0baa80c1-5209-4a11-a68e-85908e1b0e7c"/>
+				<imageExpression><![CDATA[$P{RealPath}+"login_logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="43" y="82" width="483" height="20" uuid="4d715556-edad-49e1-8e7a-f249c864562f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teacher Report : Project Overview]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement x="174" y="5" width="100" height="20" uuid="507ba0c6-a51f-4f78-a86b-5cc820f02639"/>
+				<textFieldExpression><![CDATA[$P{TotalProject}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="53" y="5" width="100" height="20" uuid="0d3b7dab-69c0-4add-8bd2-1d660a2fdcf6"/>
+				<text><![CDATA[Total Project]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="53" y="25" width="100" height="20" uuid="50228d5d-e97d-4754-aba4-8869bdc4aae4"/>
+				<text><![CDATA[As Leader]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="53" y="45" width="100" height="20" uuid="246a3984-e306-4494-83ad-61a12137b545"/>
+				<text><![CDATA[As Member]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="5" width="100" height="20" uuid="d389e3b9-cbde-4eeb-9fd9-9130cd545fa0"/>
+				<text><![CDATA[Finished]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="5" width="7" height="20" uuid="9e7f1a37-9394-4c68-931f-fd74134ee4a6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="25" width="7" height="20" uuid="f250b2c5-3a41-499c-a64a-c449a80461e7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="45" width="7" height="20" uuid="ce444e20-88fd-45ca-9364-ad4ff5ac0c7c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="405" y="5" width="7" height="20" uuid="9902ac2c-2ca9-4063-a163-c794138301ca"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="174" y="25" width="100" height="20" uuid="f458b37a-de62-420e-865d-7d7a5afa82be"/>
+				<textFieldExpression><![CDATA[$P{AsLeader}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="174" y="45" width="100" height="20" uuid="efc732a5-1e29-4bfa-a888-db17eea65119"/>
+				<textFieldExpression><![CDATA[$P{AsMember}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="5" width="100" height="20" uuid="c7fe6952-e33b-4b74-bb6c-629b2da32544"/>
+				<textFieldExpression><![CDATA[$P{Finished}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="25" width="100" height="20" uuid="ca7b2611-6c02-48e4-9d81-239a1a777dac"/>
+				<textFieldExpression><![CDATA[$P{Running}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="305" y="25" width="100" height="20" uuid="323f3f0d-b5eb-4fbe-998a-b16a24fd75db"/>
+				<text><![CDATA[Running]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="405" y="25" width="7" height="20" uuid="24f87bac-ff16-44b8-94bf-21f5f6cff91c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ : ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="286" y="5" width="1" height="60" uuid="fd88bfe3-fad4-4e8e-8e51-3524f2a895e9"/>
+			</line>
+			<line>
+				<reportElement x="12" y="0" width="527" height="1" uuid="0e0f7027-872e-4f96-a3ad-a2dee7c82188"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="0" width="32" height="20" uuid="46965c2b-1933-4e62-84cf-97d296536bb3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Serial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="53" y="0" width="55" height="20" uuid="c187c067-5549-4b29-a2ae-3a866dba6fe8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[File No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="0" width="194" height="20" uuid="093df531-1362-4404-bee9-1cb464a628b9"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Project Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="0" width="86" height="20" uuid="4f5f71cb-a5e5-4338-a347-1a851245b8c3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Act As]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="1" width="130" height="20" uuid="37b50f43-f875-4d48-9cfc-d244ded2bf87"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Progress Status]]></text>
+			</staticText>
+			<line>
+				<reportElement x="11" y="20" width="527" height="1" uuid="f4ede2fc-ddec-4630-8bc8-3b1916fa1278"/>
+			</line>
+			<line>
+				<reportElement x="11" y="0" width="527" height="1" uuid="6cfdb331-342c-4bf8-92e9-62bda4614d56"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="21" y="0" width="32" height="20" uuid="00404e79-8c8a-4f11-a70e-048ac759e9c7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Serial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="0" width="55" height="20" uuid="0269f768-fe59-4508-a90e-9a657ca37f8c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FileNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="116" y="0" width="189" height="40" uuid="7c2af008-203c-40e1-b4e7-8c7c8bc314bf"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ProjectTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="0" width="86" height="20" uuid="2968182f-8554-4471-b241-e24198f3cb7b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ActAs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="0" width="130" height="20" uuid="23a39390-624c-4f04-86f2-c25205683c32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ProgStatus}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="11" y="39" width="527" height="1" uuid="59db87aa-9ae1-4bfd-8c0e-35e242a8a38b"/>
+			</line>
+			<line>
+				<reportElement x="310" y="0" width="1" height="39" uuid="a4adec79-8b67-4ec0-89e5-c65f1661d198"/>
+			</line>
+			<line>
+				<reportElement x="396" y="0" width="1" height="40" uuid="2605259f-a7cc-44f3-a0e9-44657c1a54e2"/>
+			</line>
+			<line>
+				<reportElement x="538" y="0" width="1" height="39" uuid="d7ac66da-cf1e-474a-9c76-28c19c8c1fcc"/>
+			</line>
+			<line>
+				<reportElement x="108" y="0" width="1" height="40" uuid="bcb070c9-0585-42e4-a42b-e441a2c0c890"/>
+			</line>
+			<line>
+				<reportElement x="53" y="0" width="1" height="40" uuid="90eed3b9-eb37-4f68-919d-6827dfc39994"/>
+			</line>
+			<line>
+				<reportElement x="11" y="0" width="1" height="40" uuid="0b079d98-f536-4539-b46c-84a56aa06c93"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

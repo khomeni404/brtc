@@ -1,0 +1,20 @@
+    @RequestMapping(value = "/reportShow.buet", method = RequestMethod.GET)
+    @ResponseBody
+    public void reportShow(HttpServletResponse response) throws JRException, IOException {
+        //url: http://stackoverflow.com/questions/27532446/how-to-use-jasperreports-with-spring-mvc
+        //InputStream jasperStream = this.getClass().getResourceAsStream("/com/buet/report/test/report8.jasper");
+        //InputStream jasperStream = this.getClass().getResourceAsStream("D:/abc/brtc/src/com/buet/report/test/report8.jasper");
+        //JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperStream);
+        //JasperReport jasperReport = JasperCompileManager.compileReport(new File("").getAbsolutePath()+"/src/com/buet/report/test/report8.jasper");
+        Map<String,Object> params = new HashMap<String,Object>();
+        params.put("title", "Bismillah");         //"E://report8.jasper"
+        JasperPrint jasperPrint = JasperFillManager.fillReport("E://report8.jasper", params, new JREmptyDataSource());
+
+        response.setContentType("application/x-pdf");
+        response.setHeader("Content-disposition", "inline; filename=helloWorldReport.pdf");
+
+        //final OutputStream outStream = response.getOutputStream();
+        ByteArrayOutputStream outStream =new ByteArrayOutputStream();
+        JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);
+
+    }

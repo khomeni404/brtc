@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProjectHistory" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f7a1e034-4169-4834-8b3e-9e58526ab7ca">
+	<property name="ireport.zoom" value="1.210000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="RealPath" class="java.lang.String"/>
+	<parameter name="FileNo" class="java.lang.String"/>
+	<parameter name="ProgressStatus" class="java.lang.String"/>
+	<parameter name="Title" class="java.lang.String"/>
+	<parameter name="Client" class="java.lang.String"/>
+	<parameter name="Date" class="java.lang.String"/>
+	<field name="RecordDate" class="java.lang.String"/>
+	<field name="Note" class="java.lang.String"/>
+	<field name="Author" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="214" splitType="Stretch">
+			<textField>
+				<reportElement x="321" y="97" width="209" height="20" forecolor="#009999" uuid="e7c23674-dd55-4253-afef-5af49f63d00a"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["[ "+$P{ProgressStatus}+" ]"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="101" y="17" width="429" height="56" uuid="5a67bd6d-545d-49cb-8522-6f32ae8b7bc3"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bureau of Research, Testing and Consultation (BRTC)
+BUET]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="31" y="122" width="499" height="72" uuid="6b63a011-678c-43ca-96df-3a05d729d171"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Project Title : "+ $P{Title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="97" width="290" height="20" forecolor="#0000FF" uuid="2f31fdbd-ea23-48bc-9b5c-262ecbc5c36c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Project History : File No. " + $P{FileNo}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="31" y="15" width="65" height="58" uuid="a7637c08-9a53-465a-8391-8ece87a7d68d"/>
+				<imageExpression><![CDATA[$P{RealPath}+"login_logo.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="31" y="194" width="499" height="20" uuid="8127c03c-2b78-40fb-a0f9-1265cd0aec26"/>
+				<textFieldExpression><![CDATA["Client Name : "+$P{Client}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="75" width="209" height="20" uuid="6abc36f3-6879-48b0-a0a8-11623f78e37e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Print Date : "+$P{Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="31" y="14" width="499" height="20" uuid="9513ecc2-03a9-4cc4-bfb3-fc5f34d40e0d"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[History (Last - First)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="31" y="33" width="499" height="1" uuid="4ba9b3db-f08a-4a67-b86c-e1b9287a473e"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="42" y="2" width="72" height="20" uuid="41433b55-dda5-421b-9380-d11986b7f7a9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Record Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="124" y="2" width="273" height="20" uuid="dc95260b-68a5-4022-883f-86fd85b2eda3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Note]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="408" y="2" width="122" height="20" uuid="c1ab64a1-be18-4726-b4cb-a582b217793e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Created By]]></text>
+			</staticText>
+			<line>
+				<reportElement x="31" y="22" width="499" height="1" uuid="63f6d067-4ef4-480f-af63-21e316dcd669"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="42" y="0" width="72" height="40" uuid="06352a34-c7f0-4227-b870-93428b4b180a"/>
+				<textFieldExpression><![CDATA[$F{RecordDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="0" width="273" height="40" uuid="9a4dd306-dd9d-4aba-9acf-fc0046191b11"/>
+				<textFieldExpression><![CDATA[$F{Note}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="408" y="0" width="122" height="40" uuid="198cc784-2f67-40f7-be67-257ea060e576"/>
+				<textFieldExpression><![CDATA[$F{Author}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="117" y="-1" width="1" height="41" uuid="1a450186-a8ea-4771-a74e-e631cf992e43"/>
+			</line>
+			<line>
+				<reportElement x="402" y="-1" width="1" height="41" uuid="d5370385-ed2e-4a92-9c31-748d7bc562d7"/>
+			</line>
+			<line>
+				<reportElement x="31" y="40" width="499" height="1" uuid="2e186441-c14c-4a36-bd3f-3de48e7f84c5"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

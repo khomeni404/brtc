@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProjectListStatuses" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e967ebd2-0fd3-4a8f-a86f-764e8a64e54b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="228"/>
+	<parameter name="Progress" class="java.lang.String"/>
+	<parameter name="Financial" class="java.lang.String"/>
+	<parameter name="Distribution" class="java.lang.String"/>
+	<parameter name="Department" class="java.lang.String"/>
+	<parameter name="Date" class="java.lang.String"/>
+	<parameter name="RealPath" class="java.lang.String"/>
+	<field name="Undistributed" class="java.lang.String"/>
+	<field name="Name" class="java.lang.String"/>
+	<field name="FinalFee" class="java.lang.String"/>
+	<field name="Received" class="java.lang.String"/>
+	<field name="Distributed" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="256" splitType="Stretch">
+			<staticText>
+				<reportElement x="94" y="48" width="441" height="50" uuid="de111685-44a0-490a-a6d5-832bd7eaa56e"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bureau of Research, Testing and Consultation (BRTC)
+BUET]]></text>
+			</staticText>
+			<image>
+				<reportElement x="32" y="38" width="62" height="50" uuid="bb2a52cb-930b-4f9a-a180-c41dbc85c446"/>
+				<imageExpression><![CDATA[$P{RealPath}+"login_logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="33" y="114" width="502" height="20" uuid="2daa2251-feaa-4c33-9676-312828539571"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Projects : Progress Status / Financial Status / Distribution Status]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="155" width="298" height="20" uuid="145ac3d3-0eb1-4022-9a76-e7fa08a5bbd4"/>
+				<textFieldExpression><![CDATA["Departmenrt : "+$P{Department}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="331" y="155" width="204" height="20" uuid="0743b063-ccfc-48ad-9e9c-162e9352ff10"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="137" y="195" width="213" height="20" uuid="6e9fd897-ff3a-43ce-9c8b-38178e2d0a5e"/>
+				<textFieldExpression><![CDATA[$P{Progress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="137" y="215" width="213" height="20" uuid="648a52bd-c644-4cf5-899f-4aacee66da0e"/>
+				<textFieldExpression><![CDATA[$P{Financial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="137" y="235" width="213" height="20" uuid="9c57acc5-92ca-406c-b3a5-64f06a8ec934"/>
+				<textFieldExpression><![CDATA[$P{Distribution}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="33" y="195" width="82" height="20" uuid="7b2e3b04-36dd-43c5-80fb-bed3a3f38e7e"/>
+				<text><![CDATA[Progress Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="235" width="82" height="20" uuid="aabb3eeb-1706-4546-bb56-7d79a619ec56"/>
+				<text><![CDATA[Distribution Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="215" width="82" height="20" uuid="ea35d965-d6b4-41df-a0a8-31f8b61ace21"/>
+				<text><![CDATA[Financial Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="124" y="195" width="4" height="20" uuid="408aa281-fa24-44af-9021-e9af8b328cd5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="124" y="215" width="4" height="20" uuid="1ee539fa-b7c2-4851-b056-31678ed81b12"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="124" y="235" width="4" height="20" uuid="38af4fd8-acd9-4519-8c87-1308c0dad8fb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="389" y="3" width="76" height="20" uuid="d5d39856-c562-462c-a0b6-9b5b1ac376b1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Distributed]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="319" y="3" width="70" height="20" uuid="b57d8a2c-3ea0-44c0-b5bb-a3f7c1ad03e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Received]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="465" y="3" width="70" height="20" uuid="e0b0897a-cc39-41be-bbe8-dae782f828a1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Undistributted]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="3" width="76" height="20" uuid="30e1b472-69a0-48e8-b44c-388799f98dea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FinalFee]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="3" width="210" height="20" uuid="fa1c7ba2-8ff9-4530-928a-1ca2196f95ec"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Project Name]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="ae031977-52e4-4cfd-9b21-5b4888184fb2"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="63" splitType="Stretch">
+			<textField>
+				<reportElement x="33" y="1" width="210" height="62" uuid="c41ee5bc-0571-49ee-bcef-4a21d553be2f"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="243" y="0" width="76" height="20" uuid="a79b4363-6929-4b3a-b73c-4fa6518278de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FinalFee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="319" y="0" width="70" height="20" uuid="c640f734-71e8-4275-b8fe-d6a7bbf16bce"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Received}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="0" width="76" height="20" uuid="bd19bd42-dda1-49f5-b525-ad64d84f5b69"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Distributed}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="0" width="70" height="20" uuid="d63c2bce-7f7d-43f1-8339-d5140f71ccc3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Undistributed}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="de16917f-ba57-4971-8ecf-382951fe2547"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

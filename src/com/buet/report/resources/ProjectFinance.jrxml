@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProjectFinance" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a181b01c-a7bb-4e9b-ab9d-434016f1213f">
+	<property name="ireport.zoom" value="2.2"/>
+	<property name="ireport.x" value="53"/>
+	<property name="ireport.y" value="721"/>
+	<parameter name="Title" class="java.lang.String"/>
+	<parameter name="FileNo" class="java.lang.String"/>
+	<parameter name="Client" class="java.lang.String"/>
+	<parameter name="Distributions" class="java.lang.String"/>
+	<parameter name="Distributed" class="java.lang.String"/>
+	<parameter name="TeacherFee" class="java.lang.String"/>
+	<parameter name="Others" class="java.lang.String"/>
+	<parameter name="Undistributed" class="java.lang.String"/>
+	<parameter name="Due" class="java.lang.String"/>
+	<parameter name="ProjectFee" class="java.lang.String"/>
+	<parameter name="TotalReceived" class="java.lang.String"/>
+	<parameter name="RealPath" class="java.lang.String"/>
+	<parameter name="PaSubmitted" class="java.lang.String"/>
+	<parameter name="DeptAdvances" class="java.lang.String"/>
+	<field name="Name" class="java.lang.String"/>
+	<field name="Designation" class="java.lang.String"/>
+	<field name="Act" class="java.lang.String"/>
+	<field name="Amount" class="java.lang.String"/>
+	<field name="Date" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="353" splitType="Stretch">
+			<staticText>
+				<reportElement x="106" y="35" width="429" height="56" uuid="83c1abf5-2898-46a6-9630-27a64f97fc77"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bureau of Research, Testing and Consultation (BRTC)
+BUET]]></text>
+			</staticText>
+			<image>
+				<reportElement x="38" y="27" width="51" height="50" uuid="75bad420-a66d-450b-ae2e-2736ee25d385"/>
+				<imageExpression><![CDATA[$P{RealPath}+"login_logo.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="38" y="114" width="499" height="20" forecolor="#0000FF" uuid="7943933e-5b03-4b76-9c44-1ef3b50bf75f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Financial Details : File No. " + $P{FileNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="144" width="499" height="72" uuid="c43df862-9395-41c9-a9e6-0fb3432602bb"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Project Title : "+ $P{Title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="219" width="308" height="20" uuid="67bdb86c-d99a-42e5-a073-ea9e6d687fcb"/>
+				<textFieldExpression><![CDATA["Client Name : "+$P{Client}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="346" y="219" width="191" height="20" uuid="6db9e7ac-3c08-4e9e-b690-506b591f6673"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Project Fee : " + $P{ProjectFee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="252" width="187" height="20" forecolor="#009933" uuid="6bc52c0c-2eff-4ead-9c2a-c847a9ce8d03"/>
+				<textFieldExpression><![CDATA["Total Received : " + $P{TotalReceived}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="250" width="285" height="20" uuid="1562bbb7-95bd-4216-88f4-a2585965d5c8"/>
+				<textFieldExpression><![CDATA["Distributed : " + $P{Distributed}+" by " +$P{Distributions}+" Distribution(s)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="270" width="285" height="20" uuid="1a17b48b-5df9-45fd-a71b-b2e2eb3c2164"/>
+				<textFieldExpression><![CDATA["To Consultants' : " +$P{TeacherFee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="310" width="285" height="20" uuid="fbe6bf5a-11a5-40c0-a162-662391764b7b"/>
+				<textFieldExpression><![CDATA["To Others : " + $P{Others}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="330" width="285" height="20" uuid="4e270e25-e77d-4053-8191-3174fc5811eb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Undistributed : " + $P{Undistributed}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="309" width="185" height="20" forecolor="#FF3300" uuid="4b8b82a3-1bbb-4b55-b5ec-b4f094fb9bb8"/>
+				<textFieldExpression><![CDATA["Due : " + $P{Due}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="282" width="185" height="20" uuid="8a7ade4a-ebf2-4d5d-be0e-c7c6af48461e"/>
+				<textFieldExpression><![CDATA["PA Submited : "+$P{PaSubmitted}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="290" width="285" height="20" uuid="cee830d5-47dc-48fb-8a8b-d9a82d2d9edc"/>
+				<textFieldExpression><![CDATA["Dept. Advances : " +$P{DeptAdvances}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="239" width="555" height="1" uuid="dd771133-085e-4eaa-8a92-3abf6afdfb8d"/>
+			</line>
+			<line>
+				<reportElement x="0" y="217" width="555" height="1" uuid="b12e894d-b375-467d-af7e-6f0d5deac46b"/>
+			</line>
+			<line>
+				<reportElement x="240" y="247" width="1" height="98" uuid="ea8229dd-8059-4f62-bbea-2c41e5759310"/>
+			</line>
+			<line>
+				<reportElement x="0" y="352" width="555" height="1" uuid="b8766cd8-bd28-41d5-9dbd-e52403089f20"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="36" y="23" width="499" height="20" backcolor="#CCCCCC" uuid="a3c516a8-184a-473a-9ff2-74c09ff64256"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Consultants' List :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="42" width="555" height="1" uuid="63d5611d-743a-4c99-a585-430518f03ad3"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="263" y="0" width="100" height="20" uuid="90ba56b8-7fd1-4466-99dc-365106567d78"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Designation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="0" width="74" height="20" uuid="283fff9f-69df-43f6-96ca-a84ec1883b65"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Act]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="483" y="0" width="52" height="20" uuid="30cafbad-00a0-4bea-afd1-ec8c08191627"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="19" width="555" height="1" uuid="1873a1d2-1769-47cb-a26f-1a70f05bc090"/>
+			</line>
+			<staticText>
+				<reportElement x="106" y="0" width="100" height="20" uuid="3047877c-4b3a-47e2-b4cf-2ed79da8ffdb"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="0" width="70" height="19" uuid="8cfacb74-a5a9-4f58-a2ee-f2841b6cd3b0"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="456" y="0" width="79" height="20" uuid="34ede80a-200a-40d4-b4c0-46ea2db63a3b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Amount}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" uuid="35eee22f-8d99-4906-9329-fc942f39ea7b"/>
+			</line>
+			<textField>
+				<reportElement x="382" y="0" width="73" height="20" uuid="d1b2a55d-49be-4202-997e-f0c7061c1a60"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Act}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="261" y="1" width="121" height="20" uuid="762e3207-3c68-4974-aa18-0dae87deadfb"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Designation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="2" width="155" height="20" uuid="d1c0e96c-c601-4ecf-aee9-21e68c6f28b8"/>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="2" width="70" height="20" uuid="bda03d06-7f4a-48d7-9774-15cd5c87ce2a"/>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

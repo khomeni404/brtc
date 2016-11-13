@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
+
+    <global-method-security secured-annotations="enabled" />
+    
+	<http entry-point-ref="erpEntryPoint">
+        <intercept-url pattern="/Login.buet" filters="none" />
+        <intercept-url pattern="/authentication/login.buet" filters="none" />
+        <intercept-url pattern="/admin/getUser.buet" filters="none" />
+        <intercept-url pattern="/admin/CreateUser.buet" filters="none" />
+        <intercept-url pattern="/*.buet" filters="none" />
+        <intercept-url pattern="/*.jsp" filters="none" />
+        <intercept-url pattern="/**/*.htm*" filters="none" />
+        <intercept-url pattern="/**/*.ws" filters="none" />
+        <intercept-url pattern="/**/*.js" filters="none" />
+        <intercept-url pattern="/**/*.css" filters="none" />
+        <intercept-url pattern="/**/*.png" filters="none" />
+        <intercept-url pattern="/**/*.jpg" filters="none" />
+        <intercept-url pattern="/**/*.gif" filters="none" />
+        <intercept-url pattern="/**" access="ROLE_USER" />
+		<logout logout-success-url="/Login.buet" />
+		<custom-filter ref="erpAuthFilter" position="FORM_LOGIN_FILTER" />
+    </http>
+    
+
+	<beans:bean id="erpEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <beans:property name="loginFormUrl" value="/Login.buet" />
+        <beans:property name="forceHttps" value="false" />
+    </beans:bean>
+
+	<beans:bean id="erpAuthFilter" class="com.buet.security.AuthorizationFilter">
+        <beans:property name="authenticationManager" ref="erpAuthenticationManager" />
+        <beans:property name="authenticationFailureHandler" ref="erpFailureHandler" />
+	</beans:bean>
+
+	<beans:bean id="erpFailureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler" >
+		<beans:property name="defaultFailureUrl" value="/Login.buet?error_login=t" />
+	</beans:bean>
+
+    <authentication-manager alias="erpAuthenticationManager">
+    	<authentication-provider ref="erpAuthenticationProvider" />
+    </authentication-manager>
+
+	<beans:bean id="erpAuthenticationProvider" class="com.buet.security.ERPAuthenticationProvider">
+    	<beans:property name="userDetailsService" ref="userDetailsService"/>
+	</beans:bean>
+	
+</beans:beans>

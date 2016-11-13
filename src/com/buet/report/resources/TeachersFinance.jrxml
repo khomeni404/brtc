@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TeachersFinance" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8fdbe0cd-4bbd-4a7c-8c74-c7d209e859c6">
+	<property name="ireport.zoom" value="1.5000000000000007"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="54"/>
+	<parameter name="Department" class="java.lang.String"/>
+	<parameter name="Date" class="java.lang.String"/>
+	<parameter name="RealPath" class="java.lang.String"/>
+	<field name="Name" class="java.lang.String"/>
+	<field name="Projects" class="java.lang.String"/>
+	<field name="AsLeader" class="java.lang.String"/>
+	<field name="AsMember" class="java.lang.String"/>
+	<field name="Received" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement x="81" y="45" width="441" height="50" uuid="b2faec85-0dd0-4f23-84c7-6d21eadbefa6"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bureau of Research, Testing and Consultation (BRTC)
+BUET]]></text>
+			</staticText>
+			<image>
+				<reportElement x="28" y="40" width="47" height="50" uuid="eda63952-ae30-407b-8bb8-9280addaf700"/>
+				<imageExpression><![CDATA[$P{RealPath}+"login_logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="67" splitType="Stretch">
+			<textField>
+				<reportElement x="26" y="38" width="298" height="20" uuid="db8a9de7-c612-4468-8f37-23cc8dfa3c14"/>
+				<textFieldExpression><![CDATA["Departmenrt : "+$P{Department}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="38" width="185" height="20" uuid="fc765e32-4d67-4785-b663-e39fa2043772"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{Date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="26" y="0" width="244" height="20" uuid="085cf0e4-33a1-4e1f-b587-e78ff0d9d265"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teacher List : Teachers & Received Amount]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="3" width="244" height="20" uuid="55a55c2b-baa1-4a8d-af55-44589a7df73b"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="3" width="54" height="20" uuid="2afa5093-1db5-4990-9562-44d926d42490"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Project]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="3" width="53" height="20" uuid="2dbd818b-df10-424a-b0f5-4189f9fd6c09"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[As Leader]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="3" width="64" height="20" uuid="b9c0296b-9230-4474-99ad-f906a10c03e8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[As Member]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="3" width="81" height="20" uuid="dbc6974e-df32-45d6-b069-3861cce2431d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Received]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="2" width="555" height="1" uuid="ac7600d0-b154-4a5e-9dfa-a1805639c796"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="26" y="0" width="244" height="20" uuid="db144f7c-9e5b-4b27-805e-9d5dedf52224"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="54" height="20" uuid="68b2bce5-cbec-41d2-a562-1b1466745218"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Projects}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="324" y="0" width="53" height="20" uuid="e1f37ffd-c733-4bd0-a452-0b980b80d55d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AsLeader}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="377" y="0" width="64" height="20" uuid="2595ea11-4b4d-479c-a6ac-e575fae4454d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AsMember}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="0" width="81" height="20" uuid="d43bd6bf-acbd-4e92-89be-6136c4f0da35"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Received}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="19" width="555" height="1" uuid="c38cf75c-62aa-4733-98c4-21f20fab7e90"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-1" width="555" height="1" uuid="60057648-3d53-4769-9df4-ea17f69fc7c7"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,24 @@
+$.ajax({
+    type : "POST",
+    url : "/myurl",
+    data : {
+        myArray: a //notice that "myArray" matches the value for @RequestParam
+                   //on the Java side
+    },
+    success : function(response) {
+       // do something ...
+    },
+    error : function(e) {
+       alert('Error: ' + e);
+    }
+});
+
+//Controller
+public String controllerMethod(@RequestParam(value="myArray") Integer[] myArray){
+    ....
+}
+
+//OR Controller
+public String controllerMethod(@RequestParam(value="myArray") List<Integer> myArray){
+    ....
+}

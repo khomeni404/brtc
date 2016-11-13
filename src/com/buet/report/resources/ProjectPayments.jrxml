@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProjectHistory" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f7a1e034-4169-4834-8b3e-9e58526ab7ca">
+	<property name="ireport.zoom" value="2.1435888100000016"/>
+	<property name="ireport.x" value="129"/>
+	<property name="ireport.y" value="447"/>
+	<parameter name="RealPath" class="java.lang.String"/>
+	<parameter name="FileNo" class="java.lang.String"/>
+	<parameter name="Status" class="java.lang.String"/>
+	<parameter name="Title" class="java.lang.String"/>
+	<parameter name="Client" class="java.lang.String"/>
+	<parameter name="Date" class="java.lang.String"/>
+	<parameter name="FinalFee" class="java.lang.String"/>
+	<parameter name="Department" class="java.lang.String"/>
+	<field name="RecordDate" class="java.lang.String"/>
+	<field name="Amount" class="java.lang.String"/>
+	<field name="EnchashDate" class="java.lang.String"/>
+	<field name="BrtcNo" class="java.lang.String"/>
+	<field name="MoneyReceipt" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="214" splitType="Stretch">
+			<textField>
+				<reportElement x="321" y="97" width="209" height="20" forecolor="#009999" uuid="e7c23674-dd55-4253-afef-5af49f63d00a"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["[ "+$P{Status}+" ]"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="101" y="31" width="429" height="42" uuid="5a67bd6d-545d-49cb-8522-6f32ae8b7bc3"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bureau of Research, Testing and Consultation (BRTC)
+BUET]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="31" y="122" width="499" height="72" uuid="6b63a011-678c-43ca-96df-3a05d729d171"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Project Title : "+ $P{Title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="97" width="290" height="20" forecolor="#0000FF" uuid="2f31fdbd-ea23-48bc-9b5c-262ecbc5c36c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Project History : File No. " + $P{FileNo}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="31" y="15" width="65" height="58" uuid="a7637c08-9a53-465a-8391-8ece87a7d68d"/>
+				<imageExpression><![CDATA[$P{RealPath}+"login_logo.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="31" y="194" width="499" height="20" uuid="8127c03c-2b78-40fb-a0f9-1265cd0aec26"/>
+				<textFieldExpression><![CDATA["Client Name : "+$P{Client}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="75" width="209" height="20" uuid="6abc36f3-6879-48b0-a0a8-11623f78e37e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Date : "+$P{Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="31" y="14" width="499" height="20" uuid="9513ecc2-03a9-4cc4-bfb3-fc5f34d40e0d"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Client Payments]]></text>
+			</staticText>
+			<line>
+				<reportElement x="31" y="33" width="499" height="1" uuid="4ba9b3db-f08a-4a67-b86c-e1b9287a473e"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="42" y="2" width="72" height="20" uuid="41433b55-dda5-421b-9380-d11986b7f7a9"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Record Date]]></text>
+			</staticText>
+			<line>
+				<reportElement x="31" y="22" width="499" height="1" uuid="63f6d067-4ef4-480f-af63-21e316dcd669"/>
+			</line>
+			<staticText>
+				<reportElement x="118" y="3" width="69" height="20" uuid="4454705e-96a6-486e-8c34-ae36bbec74e8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="198" y="3" width="76" height="20" uuid="f2c17c65-4ac6-4495-92fd-1bebe41a1053"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EnchashDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="1" width="156" height="20" uuid="ab1009ac-24b3-447e-9c6b-a7d64632a784"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[BrtcNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="1" width="86" height="20" uuid="1043a1f8-0847-4917-8a54-4148668a8e2e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MoneyReceipt]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="42" y="0" width="72" height="21" uuid="06352a34-c7f0-4227-b870-93428b4b180a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RecordDate}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="117" y="-1" width="1" height="20" uuid="1a450186-a8ea-4771-a74e-e631cf992e43"/>
+			</line>
+			<line>
+				<reportElement x="197" y="0" width="1" height="20" uuid="d5370385-ed2e-4a92-9c31-748d7bc562d7"/>
+			</line>
+			<line>
+				<reportElement x="31" y="20" width="499" height="1" uuid="2e186441-c14c-4a36-bd3f-3de48e7f84c5"/>
+			</line>
+			<textField>
+				<reportElement x="118" y="0" width="69" height="20" uuid="5581289f-57d2-4f59-ae28-bd916d19928e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="198" y="0" width="76" height="20" uuid="7ed6d8df-6686-4452-ba22-c51728da43f9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{EnchashDate}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="274" y="0" width="1" height="20" uuid="a8ce224c-9a7e-4f33-a1ff-81edb4ec43d9"/>
+			</line>
+			<textField>
+				<reportElement x="275" y="0" width="155" height="20" uuid="21b2ea8d-c5f1-4d88-a70c-078171f2908a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BrtcNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="86" height="20" uuid="69238b08-1f73-4494-b502-f7847149265f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{MoneyReceipt}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="429" y="0" width="1" height="20" uuid="777568e0-6b0b-4805-a370-18665b54f634"/>
+			</line>
+			<line>
+				<reportElement x="530" y="0" width="1" height="20" uuid="30770d87-e9eb-48a4-95ad-2ffab73f69a8"/>
+			</line>
+			<line>
+				<reportElement x="31" y="0" width="1" height="20" uuid="7cacd0eb-8573-4ff4-b698-de369598a5fe"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
